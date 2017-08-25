@@ -19,33 +19,33 @@ class Solution {
 	const int SENTINEL = 100;
 
 public:
-	vector<int> merge(vector<int> &input) {
+	void merge(vector<int> &input) {
 		int mid = input.size()/2;
 		vector<int> leftArray(input.begin(),input.begin() + mid);
 		vector<int> rightArray(input.begin() + mid, input.end());
-		vector<int> result;
+		//vector<int> result;
 		leftArray.push_back(SENTINEL);
 		rightArray.push_back(SENTINEL);
-		printVector(leftArray);
-		printVector(rightArray);
+		//printVector(leftArray);
+		//printVector(rightArray);
 		int i = 0;
 		int j = 0;
 		int count = 0;
-		while (leftArray[i] != SENTINEL and rightArray[j] != SENTINEL) {
+		while (1) {
 			if (leftArray[i] <= rightArray[j]) {
-				result.push_back(leftArray[i]);
+				input[count] = leftArray[i];
 				count++;
 				i++;
 			} else {
-				result.push_back(rightArray[j]);
+				input[count] = rightArray[j];
 				count++;
 				j++;
 			}
-		printVector(result);
-
+		//printVector(input);
+			if( leftArray[i] == SENTINEL and rightArray[j] == SENTINEL) {
+				break;
+			}
 		}
-
-		return result;
 	}
 };
 
@@ -55,7 +55,8 @@ int main(){
 	Solution s1;
 	cout << "first line of MergeSort!" << endl;
 	vector<int> test = {4,5,6,1,2,3,4};
-	vector<int> result = s1.merge(test);
+	//vector<int> result = s1.merge(test);
+	s1.merge(test);
 	printVector(test);
 	return 0;
 }
