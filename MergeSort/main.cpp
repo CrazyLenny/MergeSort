@@ -7,7 +7,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
+// this is a comment
 void printVector(vector<int> &input) {
 	for (unsigned int i=0; i<input.size(); i++) {
 		cout<< input[i] << " ";
